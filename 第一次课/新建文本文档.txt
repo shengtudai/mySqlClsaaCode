@@ -1,0 +1,70 @@
+create table Student
+(
+	Sno char(20),
+	Sname char(20),
+	Sage int,
+	Ssex char(5),
+	Sdept char(20)
+);
+
+insert into Student(Sno, Sname, Sage, Ssex, Sdept)
+values('1004', '李四', 21, '男', 'CS');
+
+create table Course
+(
+	Cno char(5),
+	Cnmae char(20),
+	Teacher char(10),
+	Primary key(Cno)
+;
+
+insert into Course
+values('001', '数据结构', '王强');
+
+insert into Course
+values('001', '计算机网络', '李刚');
+
+update Student
+set Sname='张二', Sage=18
+where Sno = '1002';
+
+delete from Student
+where Sno = '1002';
+
+select Sname, 'Year Of Birth:' as BIRTH, 2021-Sage BIRTHDAY, LOWER(Sdept) DEPARTMENT
+from Student;
+
+insert into SC 
+values('1001', '007', 99);
+
+select distinct Sno from SC;
+
+select * from Student where Sage in (20,22,24);
+
+select Sname, Sno, Ssex from Student where Sname like '陈%';
+
+select Sno, Cno from SC where Grade is not null; 
+
+select Sname, Sdept,Sage from Student where Sage >= 20 and Sage <=30;
+
+select Sno, Grade 
+from SC 
+where Cno='001' order by Grade DESC;
+
+
+select * from Student order by Sdept, Sage DESC;
+
+select count(Sno) as num from Student;
+
+select count(distinct Sno) from Sc;
+
+
+select avg(Sage) from Student;
+
+select avg(Sage) from Student where Ssex = '男';
+
+select max(Sage) from Student where Ssex = '男'
+
+select avg(Grade) from SC where Cno = '001';
+
+select max(Grade) from SC where Cno = '001';
